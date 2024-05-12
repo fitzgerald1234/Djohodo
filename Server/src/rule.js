@@ -4,6 +4,11 @@ class Rule {
         this.description = description;
         this.severity = severity;
         this.checkRule = checkRule;
+        this.count = 0;
+    }
+    
+    reset() {
+        this.count = 0;
     }
 
 }

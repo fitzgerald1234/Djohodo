@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './Pages/Dashboard';
+import Agents from './Pages/Agents';
+import Events from './Pages/Events';
+
+// import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1>
-          Dashboard
-        </h1>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
+    <div>
+      <Routes>
+      <Route path='/' element={<Dashboard/>} />
+      <Route path='/Dashboard' element={<Dashboard/>} />
+      <Route path='/Agents' element={<Agents/>} />
+      <Route path='/Events' element={<Events/>} />
+      {/* <Route path='/SignUpPage' element={<SignUpPage/>} />
+      <Route path='/signup-success' element={<ValidateUserInfo/>} />
+      <Route path='/userhome' element={<UserHome/>} />
+      <Route path='/explore' element={<ExploreServices/>} /> */}
+      </Routes>
     </div>
   );
 }

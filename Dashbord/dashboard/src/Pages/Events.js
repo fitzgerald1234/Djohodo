@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import toggleImage from '../assets/controls.png';
 import './Events.css';
+import RuleList from './Components/RuleList'
 
 function Events() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [agentData, setAgentData] = useState(null);
+    const [eventData, seteventData] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-    fetch('http://localhost:9090/api/v1/agents', {
+    fetch('http://localhost:9090/api/v1/events', {
         'Access-Control-Allow-Origin': 'http://localhost:9090',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
     })
       .then(response => {
         if (!response.ok) {
@@ -18,7 +21,7 @@ function Events() {
         return response.json();
       })
       .then(data => {
-        setAgentData(data);
+        seteventData(data);
       })
       .catch(error => {
         setError(error.message);
@@ -57,13 +60,8 @@ function Events() {
             Learn React
           </a> */}
         <div>
-        <h2>Event Information</h2>
-          {agentData ? (
-            <div>
-              <p><strong>RuleId:</strong> </p>
-              <p><strong>Description:</strong> </p>
-              <p><strong>Severity:</strong> </p>
-            </div>
+          {eventData ? (
+            <RuleList ruleList={eventData}/>
           ) : (
             <p>Loading...</p>
           )}

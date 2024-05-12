@@ -4,7 +4,6 @@ import cookieParser from 'cookie-parser';
 import indexRouter from './routes';
 import cors from 'cors'
 import session from 'express-session';
-import { findUserWithName, addUserInBase } from './dataBase/dataBase';
 import RedisStore from 'connect-redis';
 import { createClient } from 'redis';
 //const redis = require('redis');
@@ -25,10 +24,10 @@ const app = express();
 //   prefix: "myapp:",
 // });
 
-// app.use(cors({
-//   origin: 'http://localhost:8081',
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: '*',
+  credentials: true,
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -50,7 +49,6 @@ app.use(session({
 // app.use('/api/v1/admin/', islogged);
 // app.use('/api/v1/admin/', ConnectAdmin);
 // app.use('/api/v1/area/', islogged);
-// //app.use('/api/v1/service/', islogged);
 // app.use('/api/v1/logout', islogged);
 // app.use('/api/v1/reset/password', islogged);
 

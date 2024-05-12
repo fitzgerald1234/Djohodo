@@ -4,7 +4,7 @@ import { sign } from 'jsonwebtoken';
 import { findUserWithiD, putElemInBase, putTokenInBase } from '../dataBase/dataBase.js';
 import { ObjectId } from 'mongodb';
 import cron from 'node-cron';
-import { receiveAgentLog, registerNewAgent } from './agents.js';
+import { receiveAgentLog, registerNewAgent, listAgent } from './agents.js';
 import { checkEvents } from './event.js';
 
 // cron.schedule('* * * * *', () => {
@@ -18,13 +18,15 @@ const indexRouter = express.Router();
 
 indexRouter.post('/login', (req, res) => signup(req, res));
 
-indexRouter.post('/',  (req, res) =>{
+indexRouter.get('/',  (req, res) =>{
   res.status.send("Suck my dick")
 });
 
 indexRouter.post('/agents', (req, res) => registerNewAgent(req, res));
+indexRouter.get('/agents', (req, res) => listAgent(req, res));
 indexRouter.post('/agents/info/logs', (req, res) => receiveAgentLog(req, res));
 indexRouter.post('/agents/info/process', (req, res) => {
+  console.log(req.body);
   res.status(200).send("Information receive");
 })
 

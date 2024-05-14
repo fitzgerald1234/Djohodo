@@ -6,7 +6,6 @@ import NavBar from './Components/NavBar';
 
 
 function Events() {
-    const [menuOpen, setMenuOpen] = useState(false);
     const [eventData, seteventData] = useState(null);
     const [error, setError] = useState(null);
 
@@ -30,25 +29,14 @@ function Events() {
       });
   }, []);
 
-    const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
-    };
     return (
       <div className="Events">
         <NavBar title={"Events"}/>
-        <div className={`menu ${menuOpen ? 'open' : ''}`}>
-              <ul>
-                <li><a href ="/">Dashboard</a></li>
-                <li><a href="/agents">Agents</a></li>
-                <li><a href="/events">All Events</a></li>
-                <li><a href="/rules">All Rules</a></li>
-              </ul>
           {eventData ? (
             <RuleList ruleList={eventData}/>
           ) : (
             <p>Loading...</p>
           )}
-        </div>
       </div>
     );
   }

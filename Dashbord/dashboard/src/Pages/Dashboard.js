@@ -6,19 +6,19 @@ function Dashboard() {
     return (
       <div className="Dashboard">
         <NavBar title={"Dashboard"}/>
-        <h2>
+        <h1>
           Total agents
           <br/>
           <br/>
           1
-        </h2>
-        <h2>
+        </h1>
+        <h1>
           <br/>
           Agents Activated
           <br/>
           <br/>
           1
-        </h2>
+        </h1>
       </div>
     );
   }

@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import Agents from './Pages/Agents';
 import Events from './Pages/Events';
+import Rules from './Pages/Rules'
 
-// import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Route path='/Dashboard' element={<Dashboard/>} />
       <Route path='/Agents' element={<Agents/>} />
       <Route path='/Events' element={<Events/>} />
+      <Route path='/Rules' element={<Rules/>} />
       {/* <Route path='/SignUpPage' element={<SignUpPage/>} />
       <Route path='/signup-success' element={<ValidateUserInfo/>} />
       <Route path='/userhome' element={<UserHome/>} />

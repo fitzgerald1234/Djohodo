@@ -2,9 +2,11 @@
     height: 100px;
     background-color: #282c34;
     color: orange;
+    text-align: center;
 }
   
 .NavBar h1 {
+    margin: 0;
     padding: 0;
     padding-top: 25px;
 }

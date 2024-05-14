@@ -24,3 +24,15 @@ export var rules = [
         return false;
     })
 ]
+
+export function getAllRules(req, res)
+{
+    let output = []
+    for (let i = 0; i < rules.length; i++) {
+        output.push({RuleId: rules[i].id,
+                Description: rules[i].description,
+                Severity: rules[i].severity
+        });
+    }
+    return res.status(200).send(output);
+}

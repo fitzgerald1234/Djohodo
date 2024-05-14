@@ -1,8 +1,17 @@
 import { rules } from "../rule";
+import fs from 'fs';
 
-export function checkEvents(req, res) {
+export function checkEventsForAgent(req, res) {
     let id = req.body.id;
     let output = [];
+    fs.readFile(`./logs/${id}.log`, (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("auth.log", data);
+        //res.status(200).send(data);
+    });
     for (let i = 0; i < rules.length; i++) {
         if (rules[i].checkRule()) {
             output.push({RuleId: rules[i].id,

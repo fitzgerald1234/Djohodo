@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import toggleImage from '../assets/controls.png';
 import './Events.css';
 import RuleList from './Components/RuleList'
+import NavBar from './Components/NavBar';
+
 
 function Events() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -33,16 +35,7 @@ function Events() {
     };
     return (
       <div className="Events">
-        <header className="Events-header">
-        <nav>
-            <div className="toggle" onClick={toggleMenu}>
-              <img src={toggleImage} alt="Toggle Menu" style={{ width: '50px', height: '50px' }}/>
-            </div>
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-            <h1>
-                Events
-            </h1>
-        </nav>
+        <NavBar title={"Events"}/>
         <div className={`menu ${menuOpen ? 'open' : ''}`}>
               <ul>
                 <li><a href ="/">Dashboard</a></li>
@@ -50,23 +43,12 @@ function Events() {
                 <li><a href="/events">All Events</a></li>
                 <li><a href="/rules">All Rules</a></li>
               </ul>
-        </div>
-          {/* <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
-        <div>
           {eventData ? (
             <RuleList ruleList={eventData}/>
           ) : (
             <p>Loading...</p>
           )}
         </div>
-        </header>
       </div>
     );
   }

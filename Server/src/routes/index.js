@@ -5,7 +5,7 @@ import { findUserWithiD, putElemInBase, putTokenInBase } from '../dataBase/dataB
 import { ObjectId } from 'mongodb';
 import cron from 'node-cron';
 import { receiveAgentLog, registerNewAgent, listAgent } from './agents.js';
-import { checkEvents } from './event.js';
+import { checkEventsForAgent } from './event.js';
 
 // cron.schedule('* * * * *', () => {
 //   triggers_manager();
@@ -30,7 +30,7 @@ indexRouter.post('/agents/info/process', (req, res) => {
   res.status(200).send("Information receive");
 })
 
-indexRouter.post('/events', (req, res) => checkEvents(req, res));
+indexRouter.post('/events', (req, res) => checkEventsForAgent(req, res));
 
 indexRouter.get('/log/sources', (req, res) => {
   res.status(200).json({

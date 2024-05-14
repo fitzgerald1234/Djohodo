@@ -1,0 +1,56 @@
+.NavBar {
+    height: 100px;
+    background-color: #282c34;
+    color: orange;
+}
+  
+.NavBar h1 {
+    padding: 0;
+    padding-top: 25px;
+}
+  
+.toggle {
+  position: absolute;
+  padding-top: 25px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.NavBar-link {
+  color: #61dafb;
+}
+
+.menu {
+  position: absolute;
+  padding: 10px;
+  left: -300px;
+  width: 200px;
+  height: 100%;
+  background-color: #282c34;
+}
+
+.menu.open {
+  font-size: calc(10px + 2vmin);
+  display: block;
+  left: 0px;
+  background-color: #282c34;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 4%;
+  margin: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  padding-top: 20%;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none; /* no underline */
+  color: orange;
+}
+  

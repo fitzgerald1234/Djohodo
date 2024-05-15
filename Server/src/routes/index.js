@@ -20,7 +20,7 @@ const indexRouter = express.Router();
 indexRouter.post('/login', (req, res) => signup(req, res));
 
 indexRouter.get('/',  (req, res) =>{
-  res.status.send("Suck my dick")
+  res.status.send("This is api of djohodo")
 });
 
 indexRouter.post('/agents', (req, res) => registerNewAgent(req, res));
